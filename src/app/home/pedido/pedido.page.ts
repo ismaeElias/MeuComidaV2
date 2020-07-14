@@ -20,6 +20,7 @@ export class PedidoPage implements OnInit {
   botao : boolean;
   cupomDesconto : String;
   frete : number;
+  cupomDesc : number;
 
   constructor(private usuarioService : UsuarioService,
     private loadingController : LoadingController,
@@ -33,6 +34,7 @@ export class PedidoPage implements OnInit {
       this.qntPedido = 0;
       this.total = 0;
       this.botao = true;
+      this.cupomDesc = 0;
     }
 
   async ngOnInit() {
@@ -48,7 +50,6 @@ export class PedidoPage implements OnInit {
         
         this.pedidosService.getPedidos(this.usuario.usuario).subscribe((pedidos)=>{
           this.pedido = pedidos
-
           const valor = this.pedido.reduce((prev, elem)=> prev + elem.total,0);
           this.total = valor;
           this.qntPedido = this.pedido.length;
@@ -59,6 +60,7 @@ export class PedidoPage implements OnInit {
             this.botao = true;
           }
           
+          //Calculo frete
           if(this.usuario.bairro === 'Centro'){
             this.frete = 1.05
           }else if(this.usuario.bairro === 'Prospera'){
@@ -69,6 +71,7 @@ export class PedidoPage implements OnInit {
             this.frete = 1.25
           }
           this.total = this.total * this.frete
+          //
         })
         loading.dismiss();
       });
@@ -138,12 +141,22 @@ export class PedidoPage implements OnInit {
   }
 
   async cupom(){
-    if(this.cupomDesconto === 'Meu Comida'){
+    
+    if(this.cupomDesconto === 'Meu Comida' && this.cupomDesc === 0){
       let desconto = this.total * 0.2
+      this.cupomDesc = this.cupomDesc + 1
       this.total = this.total - desconto
       const alerta = await this.alertController.create({
         header: 'Cupom',
         message: 'Obrigado por usar o Cupom de desconto do melhor App Delivery :D',
+        buttons: ['Confirmar']
+      });
+      this.cupomDesconto = ''
+      alerta.present();
+    }else{
+      const alerta = await this.alertController.create({
+        header: 'Cupom Invalido!',
+        message: 'Seu cupom é invalido ou já foi utilizado ;-; ',
         buttons: ['Confirmar']
       });
       this.cupomDesconto = ''

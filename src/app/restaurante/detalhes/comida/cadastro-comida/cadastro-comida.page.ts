@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { ComidaService } from '../comida.service';
 import { RestauranteService } from 'src/app/restaurante/restaurante.service';
 import { Router } from '@angular/router';
-import { timingSafeEqual } from 'crypto';
 
 
 @Component({
@@ -28,6 +27,7 @@ export class CadastroComidaPage implements OnInit {
   ) {
     this.restaurante= this.restauranteService.obtemRestauranteLogado();
     
+
     
     this.comida = {
       restauranteId :this.restaurante.id,
@@ -45,18 +45,19 @@ export class CadastroComidaPage implements OnInit {
   }
 
   ngOnInit() {
+  
   }
 
   async salvar(){
-
-    this.comidaService.validaComida(this.comida.nome).subscribe(async (e) =>{
+    //Busca o nome da comida no banco
+    this.comidaService.validaComida(this.comida.nome,this.restaurante.id).subscribe(async (e) =>{
     this.valida = e
+    //Se não tem, Cadastra
     if(this.valida.length <= 0 ){
       this.comidaService.salvar(this.comida).subscribe(async (e) => { 
-        
         let loading = await this.loadingController.create({message:'Salvando'});
         loading.present();
-        // const buscaRes = this.restauranteService.obtemRestauranteLogado();
+        //redireciona  para a pagina do restaurante
         this.router.navigate(['restaurante/detalhes/comida/',this.restaurante.id]);
         loading.dismiss() 
       });

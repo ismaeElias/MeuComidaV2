@@ -47,21 +47,21 @@ export class ComidaService {
 
   
   getComidaRestaurante(id: number){
-    return this.httpClient.get<Comida[]>(`http://localhost:8080/meuComid/resources/comida?restauranteid=${id}`);
+    return this.httpClient.get<Comida[]>(`http://localhost:8080/meuComid/resources/comida?restauranteId=${id}`);
     
   }
 
   buscaComida(id : number){
     return this.httpClient.get<Comida>(`http://localhost:8080/meuComid/resources/comida/${id}`).pipe(tap(
       (comida: Comida) => this._comidaLogado = comida)
-     )
+    )
   }
 
   excluir(comida: Comida) {
     return this.httpClient.delete(`http://localhost:8080/meuComid/resources/comida/${comida.id}`);
   }
 
-  validaComida(nome : String){
-    return this.httpClient.get<Comida[]>(`http://localhost:8080/meuComid/resources/comida?nome=${nome}`)
+  validaComida(nome : String, id :number){
+    return this.httpClient.get<Comida[]>(`http://localhost:8080/meuComid/resources/comida?nome=${nome}&restauranteId=${id}`)
   }
 }
