@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="avaliacao"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="hideMe">Cadastre sua Avaliação</ion-title>
+    <ion-title *ngIf="hideDt">Detalhe da Avaliação</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #avaliacaoForm="ngForm" novalidate> 
+  <ion-list class="lista">
+    <ion-item>
+      <ion-label>Nome:</ion-label>
+      <ion-input type="text" [(ngModel)]="avaliacao.nome" disabled="true" name="nome" required minlength="5" #campoNome="ngModel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Restaurante:</ion-label>
+      <ion-input type="text" [(ngModel)]="avaliacao.restaurante" disabled="true" name="restaurante" required minlength="5" #campoRestaurante="ngModel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Comentário:</ion-label>
+      <ion-textarea placeholder="Descreva oque achou sobre o restaurante :D"  name="comentario" [(ngModel)]="avaliacao.comentario" [disabled]="!edit" required minlength="5" #campoComent="ngModel"></ion-textarea>
+    </ion-item>
+    <ion-text color="danger" *ngIf="campoComent.invalid && (campoComent.dirty || campoComent.touched)">
+      <small>
+        <span *ngIf="campoComent.errors.required">
+          O comentário é obrigatório.
+        </span>
+        <span *ngIf="campoComent.errors.minlength">
+          O comentário deve ter no mínimo 5 caracteres.
+        </span>
+      </small>
+    </ion-text>
+    <h2>Deixe sua nota:</h2>
+    <ion-item class="cd-item">
+      <ion-range  min="0" max="5 " step="1" snaps="true"  pin="true" color="danger" name="nota" [(ngModel)]="avaliacao.nota" [disabled]="!edit"  #campoNota="ngModel">
+        <ion-icon size="small" slot="start" name="sad"></ion-icon>
+        <ion-icon slot="end" name="happy"></ion-icon>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+</form>
+  <ion-button id="btn-EditSave"  *ngIf="hideEdit" (click)="editar()">
+    <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>Editar
+  </ion-button>
+
+  <a  *ngIf="hideEditIniciado" (click)="confirmarExclusao(avaliacao)">Excluir comentário.</a>
+    
+  <ion-button id="btn-EditSave" (click)="salvarEdit()" *ngIf="hideEditIniciado">
+    <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>Salvar Edição
+  </ion-button>
+
+  <ion-button id="btn-EditSave" (click)="salvar()" *ngIf="hideMe"> 
+    <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>Cadastrar
+  </ion-button>
+</ion-content>

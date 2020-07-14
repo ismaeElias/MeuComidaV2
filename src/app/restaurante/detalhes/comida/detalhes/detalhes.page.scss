@@ -1,0 +1,59 @@
+ion-toolbar{
+    --background:#FF3838;
+    color: white;
+}
+
+ion-grid{
+    --ion-grid-padding: 0;
+}
+ion-col{
+    --ion-grid-column-padding:0;
+}
+
+p{
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    background-color: #FF3838;
+    color: white;
+    position: relative;
+    text-align: center;
+    padding-top: 10px;
+}
+
+#comida{
+    border-right: 1px solid rgb(247, 89, 89);
+}
+
+ion-icon{
+    width: 20px;
+    height: 20px;
+}
+
+#btn-Editar{
+    --border-color: #FF3838;
+    color: #FF3838;
+    --background: transparent;
+}
+
+#btn-excluir{
+    --background: #FF3838;
+    color: white;
+    width: 170px;
+}
+
+#btn-EditSave{
+    --background: #FF3838;
+    color: white;
+}
+
+h3{
+    text-align: center;
+    font-weight: bold;
+    color: #FF3838;
+}
+
+ion-fab-button{
+    --background:#FF3838;
+    --color:white;
+}

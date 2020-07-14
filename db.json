@@ -1,0 +1,111 @@
+{
+  "restaurante": [
+    {
+      "razaoSocial": "Estação Lanches",
+      "telefoneContato": "(48) 99684-3422",
+      "detalhes": "Pizzas e Porções",
+      "segmento": "Pizzaria",
+      "nivelValor": "baixo_1",
+      "classificacao": 0,
+      "urlImagem": "https://www.itacareparadise.com.br/wp-content/uploads/2018/07/7-comidas-típicas-do-litoral-baiano-As-delícias-da-culinária-nordestina.jpg",
+      "id": 1
+    },
+    {
+      "razaoSocial": "Boston",
+      "telefoneContato": "",
+      "detalhes": "Hamburgueria",
+      "segmento": "Hamburgueria",
+      "nivelValor": "baixo_2",
+      "classificacao": 0,
+      "urlImagem": "",
+      "id": 2
+    },
+    {
+      "razaoSocial": "Hamburguer bao",
+      "telefoneContato": "",
+      "detalhes": "Hamburgueria boa",
+      "segmento": "Hamburgueria",
+      "nivelValor": "medio",
+      "classificacao": 0,
+      "urlImagem": "",
+      "id": 5
+    },
+    {
+      "razaoSocial": "Casa da pizza",
+      "telefoneContato": "",
+      "detalhes": "Vende pizza",
+      "segmento": "Pizzaria",
+      "nivelValor": "alto_1",
+      "classificacao": 0,
+      "urlImagem": "",
+      "id": 6
+    }
+  ],
+  "avaliacao": [
+    {
+      "restaurante": "Boston",
+      "nome": "Ismael Elias",
+      "usuario": "ismael",
+      "comentario": "Este restaurante é muito bom!, a pizza nem se fala",
+      "nota": 5,
+      "id": 2
+    },
+    {
+      "restaurante": "Estação Lanches",
+      "nome": "fernando",
+      "usuario": "fernando",
+      "comentario": "Este restaurante é muito bom!, a pizza nem se fala",
+      "nota": 5,
+      "id": 3
+    },
+    {
+      "nome": "diana",
+      "usuario": "diana",
+      "restaurante": "Estação Lanches",
+      "comentario": "d",
+      "nota": 4,
+      "id": 9
+    },
+    {
+      "nome": "fabio",
+      "usuario": "fabio",
+      "restaurante": "Estação Lanches",
+      "comentario": "bom",
+      "nota": 2,
+      "id": 11
+    },
+    {
+      "nome": "Ismael Elias",
+      "usuario": "ismael",
+      "restaurante": "Estação Lanches",
+      "comentario": "Muito bom",
+      "nota": 4,
+      "id": 12
+    }
+  ],
+  "pedidos": [
+    {
+      "usuario": "diana",
+      "restaurante": "Estação Lanches",
+      "comida": "Hamburguer",
+      "valor": 18,
+      "qtd": 1,
+      "total": 18,
+      "id": 3
+    }
+  ],
+  "comida": [
+    {
+      "restauranteId": 1,
+      "itens_composicao": "Pão, tomate, carne",
+      "nome": "Hamburguer",
+      "usuario": "",
+      "detalhes": "Pode ter outros tipos de salada",
+      "tipo": "Salgada",
+      "popularidade": 5,
+      "valor": 18,
+      "urlImagem": "",
+      "id": 19
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<ion-content [fullscreen]="true" >
+  <div class="conteiner">
+    <div class="inputLogin">
+      <div class="logoimage"></div>
+          <ion-item>
+            <ion-label position="fixed">Usuário: </ion-label>
+            <ion-input [(ngModel)]="usuario.nome"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="fixed">Senha: </ion-label>
+            <ion-input type="password" [(ngModel)]="usuario.senha" ></ion-input>
+          </ion-item>
+          <ion-button (click)="logar()">Acessar</ion-button>
+          <p>Não possui cadastro ? <a href="" [routerLink]="['/login/cadastro-usuario']">Clique Aqui!</a></p>
+    </div>
+  </div>
+</ion-content>  

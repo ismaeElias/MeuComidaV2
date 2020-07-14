@@ -1,0 +1,76 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="Titulo" >Meu Comida</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="conteiner">
+
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col (click)="navegarRestaurante()">
+          <p id="restaurante"><ion-icon name="cellular"></ion-icon></p>
+        </ion-col>
+        <ion-col [routerLink]="['pedido/', usuario.id]">
+          <p id="pedido"><ion-icon name="cart" id="cart"></ion-icon></p>
+        </ion-col>
+        <ion-col  (click)="navegarLogin()"> 
+          <p><ion-icon name="person"></ion-icon></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-card class="card-menu">
+      <ion-card-header>
+        <img src="../../assets/images/MenuCard.jpg" alt="Menu">
+        <ion-card-subtitle>Entra em todas as cidades sul Catarinenses</ion-card-subtitle>
+        <ion-card-title>Ofertas especiais</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <b>Use o cupom "Meu Comida" e receba 20% de desconto.</b><br>
+        Encontre todos os restaurantes, lanchonetes e hamburguerias em nosso aplicativo,
+        com preços exclusivos, entregas rapidas,
+        tudo muito Simples e fácil de usar.
+      </ion-card-content>
+      <ion-card-content>
+        Clique no botão abaixo para encontrar os melhores restaurantes:
+      </ion-card-content>
+      <ion-button (click)="navegarRestaurante()">Acesse</ion-button>
+    </ion-card>
+    <div class="cards">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <img src="../../assets/images/bannerHambugur.jpg" alt="Menu">
+              </ion-card-header>
+              <ion-card-content>
+                Clique no botão abaixo para encontrar os melhores hamburguers ;D
+              </ion-card-content>
+              <ion-button (click)="navegarRestaurante()">Nagevar</ion-button>
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <img src="../../assets/images/bannerPizza.jpg" alt="Menu">
+              </ion-card-header>
+              <ion-card-content>
+                Clique no botão abaixo para encontrar as melhores pizzarias :D
+              </ion-card-content>
+              <ion-button (click)="navegarRestaurante()">Nagevar</ion-button>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      
+    </div>
+    
+
+  </ion-content>
+</ion-app>

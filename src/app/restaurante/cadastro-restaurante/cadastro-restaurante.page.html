@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastre seu restaurante</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="restaurante"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <div class="dadosRestaurante">
+    <form #cadastroForm="ngForm" novalidate>  
+    <ion-list>
+      <ion-item>
+        <ion-label>Razão Social:</ion-label>
+        <ion-input type="text" [(ngModel)]="restaurante.razaoSocial" required name="razao" minlength="4" #campoRazao="ngModel"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoRazao.invalid && (campoRazao.dirty || campoRazao.touched)">
+        <small>
+          <span *ngIf="campoRazao.errors.required">
+            Razão social é obrigatória.
+          </span>
+          <span *ngIf="campoRazao.errors.minlength">
+            O campo de razão social deve ter no mínimo 4 caracteres.
+          </span>
+        </small>
+      </ion-text>
+
+      <ion-item>
+        <ion-label>Segmento</ion-label>
+        <ion-select placeholder="Selecione" [(ngModel)]="restaurante.segmento" [ngModelOptions]="{standalone: true}"  name="seg" minlength="4" #campoSeg="ngModel">
+          <ion-select-option value="Pizzaria">Pizzaria</ion-select-option>
+          <ion-select-option value="Hamburgueria">Hamburgueria</ion-select-option>
+          <ion-select-option value="Massas">Massas</ion-select-option>
+          <ion-select-option value="Japonesa">Comida Japonesa</ion-select-option>
+          <ion-select-option value="Porcoes">Porções</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Valor</ion-label>
+        <ion-select placeholder="Selecione" [(ngModel)]="restaurante.nivelValor" [ngModelOptions]="{standalone: true}" required name="nivelValor" minlength="4" #campoNValor="ngModel">
+          <ion-select-option value="baixo_1">R$01 - 20</ion-select-option>
+          <ion-select-option value="baixo_2">R$20 - 30</ion-select-option>
+          <ion-select-option value="medio">R$30 - 40</ion-select-option>
+          <ion-select-option value="alto_1">R$50 - 80</ion-select-option>
+          <ion-select-option value="alto_2">Maior de R$80</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Imagem</ion-label>
+        <ion-input type="text" [(ngModel)]="restaurante.urlImagem" required name="imagem" minlength="4" #campoImg="ngModel"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Detalhes:</ion-label>
+        <ion-textarea clearOnEdit="true" type="text" [(ngModel)]="restaurante.detalhes" required name="detalhes" minlength="4" #campoDetalhes="ngModel"></ion-textarea>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoDetalhes.invalid && (campoDetalhes.dirty || campoDetalhes.touched)">
+        <small>
+          <span *ngIf="campoDetalhes.errors.required">
+            Detalhes é obrigatório.
+          </span>
+          <span *ngIf="campoDetalhes.errors.minlength">
+            O campo de detalhes deve ter no mínimo 4 caracteres.
+          </span>
+        </small>
+      </ion-text>
+    </ion-list>
+    
+    </form>
+    <ion-button id="btn-EditSave" (click)="salvar()"> 
+      <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>Cadastrar
+    </ion-button>
+  </div>
+</ion-content>  

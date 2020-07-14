@@ -1,0 +1,45 @@
+
+.conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(185,28,25,1) 0%, rgba(227,38,34,1) 100%);
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  
+  .logoimage{
+    display: flex;
+    margin: 0 auto;
+    width: 250px;
+    height: 200px;
+    background-image: url('../../assets/images/LogoPequena.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  
+  ion-input, ion-item{
+    --background:#fff;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: #FF3838;
+    --highlight-color-focused: linear-gradient(90deg, rgba(116,12,10,1) 0%, rgba(179,20,17,1) 39%, rgba(190,20,16,1) 56%, rgba(194,20,15,1) 69%, rgba(236,21,14,1) 84%, rgba(205,29,24,1) 100%);
+  }
+  
+  ion-button{
+    margin-top: 20px;
+    --background: transparent;
+    border: solid 1px white;
+    border-radius: 2px;
+  }
+  
+  p,a{
+    color: white;
+  }
+  
+  a{
+    
+    font-weight: bold;
+  }

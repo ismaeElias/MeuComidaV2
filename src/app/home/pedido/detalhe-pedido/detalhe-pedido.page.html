@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      
+        <ion-label>Comida:</ion-label>
+        <ion-input [(ngModel)]="ped.comida"  class="ion-text-uppercase" [disabled]="true"></ion-input> 
+     
+    </ion-item>
+    <ion-item>
+      
+        <ion-label>Restaurante:</ion-label>
+        <ion-input [(ngModel)]="ped.restaurante"  class="ion-text-uppercase" [disabled]="true"></ion-input> 
+     
+    </ion-item>
+    <ion-item>
+     
+        <ion-label>Valor:</ion-label>
+        <ion-input [(ngModel)]="ped.valor"  class="ion-text-uppercase" [disabled]="true"></ion-input> 
+     
+    </ion-item>
+    <ion-item>
+     
+      <ion-label>Valor a pagar:</ion-label>
+      <ion-input [(ngModel)]="ped.total"  class="ion-text-uppercase" [disabled]="true"></ion-input> 
+   
+  </ion-item>
+    <ion-item>
+      <ion-label>Quantidade</ion-label>
+      <ion-select placeholder="Selecione" [ngModelOptions]="{standalone: true}"  [(ngModel)]="ped.qtd"  okText="Confirmar" cancelText="Cancelar" (ionChange)="calcTotal()">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+        <ion-select-option value="9">9</ion-select-option>
+        <ion-select-option value="10">10</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+  </ion-list>
+  <ion-button (click)="salvarEdicao()" id="btn-Editar" expand="block" fill="outline">Salvar edição</ion-button>
+</ion-content>

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p id="infoP">Algumas Informações não são editáveis por políticas do aplicativo.</p>
+
+  <ion-button id="btn-Editar" expand="block" fill="outline" *ngIf="!hideMe" (click)="editar()">
+    <ion-icon name="build-outline" slot="end"></ion-icon>Editar Perfil
+  </ion-button>
+
+  <div class="dadosPessoais">
+    <ion-list>
+      <ion-item>
+        <ion-label>Nome Completo:</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.nome" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Telefone:</ion-label>
+        <ion-input placeholder="(99)99999-9999" type="text" [(ngModel)]="usuario.telefone" maxlength="14" [disabled]="!edit"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>CPF:</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.CPF"  placeholder="000.000.000-00" maxlength="14" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>E-mail:</ion-label>
+        <ion-input placeholder="exemplo@meucomida.com.br" type="text" [(ngModel)]="usuario.email" [disabled]="!edit"></ion-input>
+      </ion-item>
+    </ion-list>
+    <h3>Informações para entrega</h3>
+    <ion-list>
+      <ion-item>
+        <ion-label>Endereço:</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.endereco" [disabled]="!edit"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>N°:</ion-label>
+        <ion-input type="number" [(ngModel)]="usuario.numResidencia" [disabled]="!edit"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Bairro:</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.bairro" [disabled]="!edit"></ion-input>
+      </ion-item>
+    </ion-list>
+    <h3>Informações do usuário</h3>
+    <ion-list>
+      <ion-item>
+        <ion-label>Usuário:</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.usuario" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item class="senha">
+        <ion-label>Senha:</ion-label>
+        <ion-input type="password" [(ngModel)]="usuario.senha" [disabled]="!edit"></ion-input>
+      </ion-item>
+    </ion-list>
+    </div>
+
+    <a  *ngIf="hideMe" (click)="confirmarExclusao(usuario)">Excluir conta.</a>
+    
+    <ion-button id="btn-EditSave" (click)="salvarEdicao()" *ngIf="hideMe">
+      <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>Salvar Edição
+    </ion-button>
+    
+    <ion-button (click)="sair()" expand="full"  *ngIf="!hideMe" id="btn-sair">
+      <ion-icon name="close-outline" slot="end"></ion-icon>Sair
+    </ion-button>
+</ion-content>

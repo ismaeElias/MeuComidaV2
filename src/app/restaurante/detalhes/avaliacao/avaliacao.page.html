@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="detalhes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Avaliações</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+  
+    <ion-item class="av-item" *ngFor="let avaliacao of avaliacao" [routerLink]="['/restaurante/detalhes/avaliacao/cadastro-avaliacao',avaliacao.id]">
+      <ion-label class="ion-text-wrap">
+        <ion-text color="danger">
+          <h2>{{avaliacao.nome}}</h2> 
+        </ion-text>
+        <p>{{avaliacao.restaurante}}</p>
+        <ion-text class="text-comentario">
+          <p>"{{avaliacao.comentario}}"</p>
+        </ion-text>
+      </ion-label>
+      <ion-badge color="danger" slot="end">{{avaliacao.nota}}<ion-icon name="star"></ion-icon></ion-badge>
+    </ion-item> 
+  </ion-list>
+
+  <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+    <ion-fab-button [routerLink]="['/restaurante/detalhes/avaliacao/cadastro-avaliacao']">
+      <ion-icon name="add" class="icon-add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

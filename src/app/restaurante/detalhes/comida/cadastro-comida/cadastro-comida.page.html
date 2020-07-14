@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastre sua comida</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="comida"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  
+  <div class="dadoscomida">
+    <form #cadastroForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label>Título:</ion-label>
+        <ion-input type="text" [(ngModel)]="comida.nome"  required name="nome" minlength="4" #campoNome="ngModel"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoNome.invalid && (campoNome.dirty || campoNome.touched)">
+        <small>
+          <span *ngIf="campoNome.errors.required">
+            O título é obrigatório.
+          </span>
+          <span *ngIf="campoNome.errors.pattern">
+            O campo título deve conter apenas letras.
+          </span>
+          <span *ngIf="campoNome.errors.minlength">
+            O campo nome deve ter no mínimo 4 caracteres.
+          </span>
+        </small>
+      </ion-text>
+
+      <ion-item>
+        <ion-label>Imagem</ion-label>
+        <ion-input type="text" [(ngModel)]="comida.urlImagem" name="img" #campoImg="ngModel"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Valor:</ion-label>
+        <ion-input type="number" [(ngModel)]="comida.valor" name="valor" #campoValor="ngModel"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Itens composição:</ion-label>
+        <ion-textarea clearOnEdit="true" type="text" [(ngModel)]="comida.itens_composicao" required name="composicao" #campoComp="ngModel"></ion-textarea>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoComp.invalid && (campoComp.dirty || campoComp.touched)">
+        <small>
+          <span *ngIf="campoComp.errors.required">
+            Deve ser informado os itens de composição.
+          </span>
+        </small>
+      </ion-text>
+
+      <ion-item>
+        <ion-label>Tipo:</ion-label>
+        <ion-select placeholder="Selecione" [(ngModel)]="comida.tipo" [ngModelOptions]="{standalone: true}" name="tipo" #campoTipo="ngModel">
+          <ion-select-option value="Doce">Doce</ion-select-option>
+          <ion-select-option value="Salgada">Salgada</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Detalhes:</ion-label>
+        <ion-textarea clearOnEdit="true" type="text" [(ngModel)]="comida.detalhes" required name="detalhe" #campoDetalhe="ngModel"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-text color="danger" *ngIf="campoDetalhe.invalid && (campoDetalhe.dirty || campoDetalhe.touched)">
+      <small>
+        <span *ngIf="campoDetalhe.errors.required">
+          Deve ser informado os detalhes da comida.
+        </span>
+      </small>
+    </ion-text>
+
+    <ion-item>
+      <p><ion-label>Popularidade:</ion-label></p>
+      <ion-range color="danger" dualKnobs="false" min="1" max="5" step="1" snaps="true" [(ngModel)]="comida.popularidade" name="popularidade" #campoPopu="ngModel"></ion-range>
+    </ion-item>
+  </form>
+    <ion-button id="btn-EditSave" (click)="salvar()"> 
+      <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>Cadastrar
+    </ion-button>
+  
+  </div>
+</ion-content>  

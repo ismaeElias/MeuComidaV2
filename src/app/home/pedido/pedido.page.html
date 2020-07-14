@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Meu Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="qntIem()">
+    <p>{{qntPedido}}</p>
+  </ion-fab-button>
+</ion-fab>
+<ion-content>
+  <ion-list class="cupom">
+    <ion-item>
+      <ion-label>Cupom:</ion-label>
+      <ion-input  type="text" [(ngModel)]="cupomDesconto"></ion-input>
+      <ion-button (click)="cupom()">Desconto</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-list lines="full">
+    <ion-item-sliding  *ngFor="let ped of pedido">
+      <ion-item>
+      <ion-label class="ion-text-wrap">
+        <ion-text color="danger">
+          <h2>{{ped.comida | uppercase}}</h2> 
+        </ion-text>
+        <p>Restaurante: {{ped.restaurante}}</p>
+        <p>Quant. Itens: {{ped.qtd}}</p>
+        <p>Valor item: {{ped.valor |  currency:'BRL'}}</p>
+        <p>Valor a pagar: {{ped.total |  currency:'BRL'}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item-options side="start">
+      <ion-item-option  [routerLink]="['/pedido/detalhe-pedido', ped.id]" color="danger">
+        <ion-icon name="create" slot="icon-only"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="confirmarExclusao(ped)">
+        <ion-icon name="trash-sharp" slot="icon-only" ></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+    </ion-item-sliding> 
+  </ion-list>
+  <div *ngIf="botao" class="img"></div>
+  <h1 *ngIf="botao">Sem pedidos cadastrados :( </h1>
+  
+</ion-content>
+<ion-footer >
+  <ion-toolbar>
+    <ion-list class="rodape">
+      <ion-item >
+        <p>Total dos pedidos a pagar C/frete: {{total | currency:'BRL'}}</p>
+        <ion-button fill="outline" [disabled]="botao" (click)="finalizar()">Finalizar Pedido</ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-toolbar>
+</ion-footer>

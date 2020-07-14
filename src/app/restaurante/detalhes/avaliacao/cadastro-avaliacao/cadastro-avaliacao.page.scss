@@ -1,0 +1,51 @@
+ion-toolbar{
+    --background:#FF3838;
+    color: white;
+}
+
+.cd-item{
+    margin: 5px;
+    --background: #EAEAEA;
+}
+
+ion-icon{
+    width: 28px;
+    height: 28px;
+    color:#FF3838;
+}
+
+.lista{
+    margin: 0 10px;
+}
+
+h2{
+    font-weight: bold;
+    color: #FF3838;
+    margin-left: 10px;
+}
+
+ion-item{
+    --border-color:#FF3838;
+    --highlight-color-focused:red;
+}
+
+#btn-EditSave{
+    margin-left: 10px;
+    --background:#FF3838;
+}
+
+#btn-EditSave ion-icon{
+    color: white;
+}
+
+
+a{
+    display: flex;
+    margin-left: 18px;
+    color: #FF3838;
+    font-weight: bold;
+}
+
+#btn-EditSave{
+    margin-top: 20px;
+}

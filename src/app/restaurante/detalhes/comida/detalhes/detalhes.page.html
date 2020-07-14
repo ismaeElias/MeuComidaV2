@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalhe da comida</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="comida"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <div class="dadoscomida">
+    <ion-list>
+      <ion-item>
+        <ion-label>Título:</ion-label>
+        <ion-input type="text" [(ngModel)]="comida.nome" [disabled]="!edit"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Imagem</ion-label>
+        <ion-input type="text" [(ngModel)]="comida.urlImagem" [disabled]="!edit"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Valor:</ion-label>
+        <ion-input type="number" [(ngModel)]="comida.valor" [disabled]="!edit"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Itens composição:</ion-label>
+        <ion-textarea clearOnEdit="true" type="text" [(ngModel)]="comida.itens_composicao" [disabled]="!edit"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tipo:</ion-label>
+        <ion-select placeholder="Selecione" [(ngModel)]="comida.tipo" [ngModelOptions]="{standalone: true}" [disabled]="!edit">
+          <ion-select-option value="Doce">Doce</ion-select-option>
+          <ion-select-option value="Salgada">Salgada</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Detalhes:</ion-label>
+        <ion-textarea clearOnEdit="true" type="text" [(ngModel)]="comida.detalhes"[disabled]="!edit"></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+
+
+    <ion-button *ngIf="hideMe" (click)="confirmarExclusao(comida)" id="btn-excluir">
+      <ion-icon name="close-outline"></ion-icon>Excluir.
+    </ion-button>
+    
+    <ion-button id="btn-EditSave" (click)="salvarEdicao()" *ngIf="hideMe">
+      <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>Salvar Edição
+    </ion-button>
+
+    <ion-button *ngIf="editButton" id="btn-Editar" expand="block" fill="outline" (click)="editar()">
+      <ion-icon name="build-outline" slot="end"></ion-icon>Editar Comida
+    </ion-button>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="salvarPedido()">
+    <ion-fab-button>
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>  

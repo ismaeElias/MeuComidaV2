@@ -1,0 +1,46 @@
+ion-toolbar{
+    color: white;
+    font-size: bold;
+    --background:#FF3838;
+}
+
+ion-item{
+    --border-color:#FF3838;
+    --highlight-color-focused:red;
+    padding: 0 15px;
+}
+ion-list{
+    padding: 0 15px;
+}
+ion-header{
+    margin-bottom: 10px;
+}
+
+
+.dadosPessoais h3{
+    padding-top: 10px;
+    background-color: #BDBDBD;
+    height: 50px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.finalizarCadastro{
+    margin:40px 0;
+}
+
+.finalizarCadastro ion-item{
+    --border-color: white;
+    --highlight-color-focused:white;
+}
+
+.finalizarCadastro ion-button{
+    --background:#FF3838;
+    width: 100px;
+    height: 40px;
+}
+ion-input{
+    --highlight-color-focused:red;
+}
+

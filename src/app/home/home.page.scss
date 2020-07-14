@@ -1,0 +1,84 @@
+.conteiner{
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+.conteiner ion-button{
+  width: 100%;
+  height: 50px;
+}
+
+ion-content {
+  --background: translucent;
+}
+
+ion-toolbar{
+  --background:#FF3838;
+}
+
+.Titulo{
+  color:White;
+  text-align: center;
+}
+
+ion-grid{
+  --ion-grid-padding: 0;
+ 
+}
+ion-col{
+  --ion-grid-column-padding:0;
+}
+
+ion-button{
+  --background:#FF3838;
+}
+p{
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  background-color: #FF3838;
+  color: white;
+  position: relative;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#restaurante{
+  border-right: 1px solid rgb(247, 89, 89);
+}
+
+ion-icon{
+  width: 20px;
+  height: 20px;
+}
+
+img{
+  width: 100%;
+}
+
+#cart{
+  width: 25px;
+  height: 25px;
+}
+
+.cards{
+  text-align: center;
+}
+
+.cards ion-card{
+  width: 160px;
+  border: 1px solid #FF3838;
+}
+
+.cards ion-button{
+  width: 130px;
+  height: 40px;
+}
+
+
+
+.card-menu{
+  border: 1px solid #FF3838;
+}
+

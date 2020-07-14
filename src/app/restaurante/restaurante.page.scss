@@ -1,0 +1,52 @@
+ion-toolbar{
+    --background:#FF3838;
+    color: white;
+}
+
+ion-label{
+    padding: 5px;;
+}
+
+ion-button{
+    --background:#FF3838;
+    --border-color: none;
+    --border-radius: 10px;
+    color: white;
+}
+
+ion-card{
+    border: 1px solid red;
+}
+
+.btn-detalhes{
+    width: 100%;
+    margin: 0;
+    border-radius: 0px;
+}
+
+.img-restaurante{
+    // padding-top: 15% ;
+    // height: 60px;
+    // width: 60px;
+    // display: block;
+    vertical-align: middle;
+    // border-radius: 50%;
+}
+
+
+.img-restaurante2{
+    display: block;
+    max-width:55px;
+    max-height:55px;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+}
+
+.img-round{
+    border-radius: 50%;
+}
+
+.avatar{
+    margin: auto;
+ }

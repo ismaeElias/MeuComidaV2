@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastre-se</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+ 
+  <ion-list>
+    <ion-item>
+      <ion-label>Pessoa Jurídica</ion-label>
+      <ion-checkbox slot="start" color="danger" [(ngModel)]="usuario.pessoaJuridica"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  
+  <div class="dadosPessoais">
+    <form #cadastroForm="ngForm" novalidate>
+    <h3>Informações pessoais</h3>
+
+    <ion-list>
+      
+      <ion-item>
+        <ion-label>Nome Completo:</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.nome" name="nome" pattern="[a-zA-Z ]+" required minlength="5" #campoNome="ngModel" ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoNome.invalid && (campoNome.dirty || campoNome.touched)">
+        <small>
+          <span *ngIf="campoNome.errors.required">
+            O nome é obrigatório.
+          </span>
+          <span *ngIf="campoNome.errors.minlength">
+            O campo nome deve ter no mínimo 5 caracteres.
+          </span>
+          <span *ngIf="campoNome.errors.pattern">
+            O campo nome deve conter apenas letras.
+          </span>
+        </small>
+      </ion-text>
+    
+      <ion-item>
+        <ion-label>Telefone:</ion-label>
+        <ion-input placeholder="(99)99999-9999" type="text" [(ngModel)]="usuario.telefone" maxlength="14" required name="telefone" #campoTel="ngModel"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoTel.invalid && (campoTel.dirty || campoTel.touched)">
+        <small>
+          <span *ngIf="campoTel.errors.required">
+            O telefone é obrigatório.
+          </span>
+        </small>
+      </ion-text>
+
+      <ion-item>
+        <ion-label>CPF:</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.CPF"  placeholder="000.000.000-00" maxlength="14" name="CPF"  required min="0"  name="CPF" #campoCPF="ngModel"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoCPF.invalid && (campoCPF.dirty || campoCPF.touched)">
+        <small>
+          <span *ngIf="campoCPF.errors.required">
+            O cpf é obrigatório.
+          </span>
+        </small>
+      </ion-text>
+
+      <ion-item>
+        <ion-label>E-mail:</ion-label>
+        <ion-input placeholder="exemplo@meucomida.com.br" type="text" [(ngModel)]="usuario.email" name="email" #campoEMAIL="ngModel"></ion-input>
+      </ion-item>
+    </ion-list>
+ 
+    <h3>Informações para entrega</h3>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Endereço:</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.endereco" required name="endereco" #campoEnd="ngModel"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoEnd.invalid && (campoEnd.dirty || campoEnd.touched)">
+        <small>
+          <span *ngIf="campoEnd.errors.required">
+            Endereço é obrigatório.
+          </span>
+        </small>
+      </ion-text>
+
+      <ion-item>
+        <ion-label>N°:</ion-label>
+        <ion-input type="number" placeholder="00"[(ngModel)]="usuario.numResidencia" required  name="numero" minlength="2" #campoNum="ngModel"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Bairro:</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.bairro" name="bairro"  required #campoBairro="ngModel"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoBairro.invalid && (campoBairro.dirty || campoBairro.touched)">
+        <small>
+          <span *ngIf="campoBairro.errors.required">
+            Bairro é obrigatório.
+          </span>
+        </small>
+      </ion-text>
+    </ion-list>
+    <h3>Informações do usuário</h3>
+    <ion-list>
+      <ion-item>
+        <ion-label>Usuário:</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.usuario" name="usuario" #campoUsuario="ngModel" required minlength="5"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoUsuario.invalid && (campoUsuario.dirty || campoUsuario.touched)">
+        <small>
+          <span *ngIf="campoUsuario.errors.required">
+            O usuário é obrigatório.
+          </span>
+          <span *ngIf="campoUsuario.errors.minlength">
+            O campo usuário deve ter no mínimo 5 caracteres.
+          </span>
+        </small>
+      </ion-text>
+      <ion-item>
+        <ion-label>Senha:</ion-label>
+        <ion-input type="password" [(ngModel)]="usuario.senha" name="senha" #campoSenha="ngModel" required minlength="5"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="campoSenha.invalid && (campoSenha.dirty || campoSenha.touched)">
+        <small>
+          <span *ngIf="campoSenha.errors.required">
+           Senha obrigatória.
+          </span>
+          <span *ngIf="campoSenha.errors.minlength">
+            O campo de senha deve ter no mínimo 5 caracteres.
+          </span>
+        </small>
+      </ion-text>
+    </ion-list>
+    
+    <ion-list class="finalizarCadastro">
+      <ion-item>
+        <ion-label>Termos de uso</ion-label>
+        <ion-checkbox slot="start" color="danger" required></ion-checkbox>
+        <ion-button (click)="salvar()" [disabled]="cadastroForm.invalid">Cadastrar</ion-button>
+      </ion-item>
+    </ion-list>
+  </form>
+  </div>
+
+</ion-content>  
